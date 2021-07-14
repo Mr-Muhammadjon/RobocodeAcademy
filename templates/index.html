@@ -1,0 +1,589 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content%}
+{% if messages %}
+<div class="message-box">
+  <div class="close-m" onclick="Hide()">
+    <i class="fa fa-times h4"></i>
+  </div>
+  
+    {% for m in messages|slice:'1' %}
+        <div class="message">
+          <h5>{{m}}</h5>
+        </div>
+    {% endfor %}
+ 
+<script>
+    function Hide() {
+        document.querySelector('.message-box').style = 'display:none;'
+    }
+</script>
+</div> 
+{% endif %}
+    <!--START HOME-->
+    <section class="bg-home-3" id="home"  style="width:100%;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                  <div class="mt-4">
+
+                    <h1 class="mt-1">
+                        <span id="app"></span>
+                          <br>
+                          <span class="left-text"> o'rganish uchun orzu emas - harakat qiling !</span>
+                    </h1>
+<script>
+    var app = document.getElementById('app');
+
+var typewriter = new Typewriter(app, {
+    loop: true
+});
+
+typewriter.typeString('Dasturlashni')
+    .pauseFor(1000)
+    .deleteAll()
+    .typeString('Robototexnikani')
+    .pauseFor(1000)
+    .deleteAll()
+    .typeString('Grafik dizaynni')
+    .pauseFor(1000)
+    .start();
+</script>
+                  
+                   
+                  </div>
+
+
+            <div class="mt-4 pt-3">
+                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal3" style="background: #FFC033;">
+                <b>Kurslarga yozilish</b> 
+                <i class="mdi mdi-arrow-right ps-2"></i>
+                </button>
+            </div>
+
+
+                  
+
+
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <img src="/static/images/main-content/cuate.png" class="w-100" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--END HOME-->
+
+    <!-- START SERVICES -->
+    <section class="section bg-light" id="services">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="title-box text-center">
+                     
+                        <h3 class="title-heading mt-3">Barcha kurslar</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-2 pt-4">
+                {% for course in courses %}
+                <div class="col-lg-6">
+                    <div class="row service-box">
+                        <div class="col-sm-8">
+                            <div class="d-block d-sm-block d-md-none d-lg-none">
+                                <img src="{{course.image.url}}" alt="">
+                            </div>
+                             <div class=" text-left uim-icon-primary mt-4">
+                      
+                                <h5 class="f-18 mt-4">{{course.title}}</h5>
+
+                                <p class="text-muted mt-3 mb-0">
+                                 {{course.short_desc}}
+                                </p>
+
+               
+                            </div>
+                            <br>
+                            <a href="{{course.get_absolute_url}}" class="btn" style="background: #FFC033;">Batafsil</a>
+                        </div>
+                        <div class="col-sm-4">
+                        <div class="d-none d-sm-none d-md-block d-lg-block">
+                            <img src="{{course.image.url}}" alt="">
+                        </div>
+                        </div>
+                    </div>
+           
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+    <!-- END SERVICES -->
+
+
+    <!-- START FEATURES -->
+
+<section id="team">
+<section  class="section  d-block d-sm-block d-md-none d-lg-none" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="container">
+                      <div class="row mt-3 mb-3">
+                <h2 class="title-heading">Biz nima bilan farq qilamiz?</h2>
+            </div>
+                         <div class="jumbotron wicon">
+                        <img src="/static/images/main-content/icons/speech-bubble.svg" alt="">
+                        <div class="text">
+                            <p>Har darsdagi amaliy topshirqlar - algoritmlar bilan ishlash ko’nikmasini oshiradi va o’quvchida dasturlash va injenerlik kasbini rivojlantiradi. Muntazam imtihonlar orqali bilmlar mustahkamlab boriladi.</p>
+                        </div>
+                  </div>
+                   <div class="jumbotron wicon">
+                    <img src="/static/images/main-content/icons/knowledge.svg" alt="">
+                       
+                        <div class="text">
+                            <p>STEM yo'nalishidagi darslar, Robototexnika va Dasturlash orqali bolalarni matematika va fizikaga o'rgatiladi. 70 % amaliy 30 % nazariy bilimlar.Darslar davomida o'ziga xos muhokama va munozaralar bo'lib o'tadi.</p>
+                        </div>
+                        
+                  </div>
+                   <div class="jumbotron wicon">
+                        <img src="/static/images/main-content/icons/trophy.svg" alt="">
+                        <div class="text">
+                            <p>Xalqaro musobaqalar O'quvchilarimiz WPO 2017 boyicha jahon chempioni.</p>
+                        </div>
+                  </div>
+                    <div class="jumbotron wicon">
+                        <img src="/static/images/main-content/icons/training.svg" alt="">
+                        <div class="text">
+                            <p>Kurs davomida kompyuter , konstruktor va dars uchun kerakli barcha narsalar bilan ta'minlaymiz.Darsdan tashqari vaqtda kelib mashg'ulot olib borish uchun sharoitlar.</p>
+                        </div>
+                  </div>
+                    <div class="jumbotron wicon">
+                         <img src="/static/images/main-content/icons/brainstorming.svg" alt="">
+                        <div class="text">
+                            <p>O'quvchilar shaxsiy loyihalarini yo'lga qo'yishida ko'maklashiladi yo'l yo'riq ko'rsatiladi. Iqtidorli o'quvchilar uchun Toshkentdagi nufuzli IT firmalarda stajirovka qilish imkoniyati.</p>
+                        </div>
+                  </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+
+    <section class="section d-none d-sm-none d-md-block d-lg-block mt-2" >
+        <div class="container" >
+            <div class="row  mb-3">
+                <h2 class="title-heading">Biz nima bilan farq qilamiz?</h2>
+            </div>
+            <div class="row section align-items-left">
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <div class="team d-none d-sm-none d-md-block d-lg-block">
+                      <img src="/static/images/main-content/ab.png"  alt="">
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="item1 wicon">
+                       <img src="/static/images/main-content/icons/speech-bubble.svg" alt="">
+                        <div class="text">
+                            <p>Har darsdagi amaliy topshirqlar - algoritmlar bilan ishlash ko’nikmasini oshiradi va o’quvchida dasturlash va injenerlik kasbini rivojlantiradi. Muntazam imtihonlar orqali bilmlar mustahkamlab boriladi.</p>
+                        </div>
+                  </div>
+                   <div class="item2 wicon">
+                        <img src="/static/images/main-content/icons/knowledge.svg" alt="">
+                        <div class="text">
+                           <p>STEM yo'nalishidagi darslar, Robototexnika va Dasturlash orqali bolalarni matematika va fizikaga o'rgatiladi. 70 % amaliy 30 % nazariy bilimlar.Darslar davomida o'ziga xos muhokama va munozaralar bo'lib o'tadi.</p>
+                        </div>
+                  </div>
+                   <div class="item3 wicon">
+                       <img src="/static/images/main-content/icons/trophy.svg" alt="">
+                        <div class="text">
+                            <p>Xalqaro musobaqalar
+O'quvchilarimiz WPO 2017 boyicha jahon chempioni.</p>
+                        </div>
+                  </div>
+                    <div class="item4 wicon">
+                          <img src="/static/images/main-content/icons/training.svg" alt="">
+                        <div class="text">
+                            <p>Kurs davomida kompyuter , konstruktor va dars uchun kerakli barcha narsalar bilan ta'minlaymiz.Darsdan tashqari vaqtda kelib mashg'ulot olib borish uchun sharoitlar.</p>
+                        </div>
+                  </div>
+                    <div class="item5 wicon">
+                        <img src="/static/images/main-content/icons/brainstorming.svg" alt="">
+                        
+                        <div class="text">
+                             <p>O'quvchilar shaxsiy loyihalarini yo'lga qo'yishida ko'maklashiladi yo'l yo'riq ko'rsatiladi. Iqtidorli o'quvchilar uchun Toshkentdagi nufuzli IT firmalarda stajirovka qilish imkoniyati.</p>
+                        </div>
+                  </div>
+                 
+                </div>
+
+
+
+            </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+       
+        </div>
+    </section>
+    <!-- END FEATURES -->
+
+</section>
+
+    <!-- START CONTACT -->
+<section class="section bg-light" >
+<div class="container">
+
+<div class="row justify-content-center">
+    <div class="col-lg-12">
+
+        <div class="title-box text-center">
+            <h3 class="title-heading mt-3">Robocode jamoasiga qo’shiling</h3>
+        </div>
+                    <!-- Team -->
+<section  class="pb-5">
+    <div class="container">
+     
+        <div class="row" id="slide">
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/04.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Abdulaziz Yakubov</h4>
+                                    <p class="card-text">Robocode IT Academy asoschisi. Bosh direktor. Node.js developer.</p>
+                                    <a href="#" class="display-4 text-dark">
+                                        <i class="fab fa-js"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+              
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/01.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Kozimbek Kamalov</h4>
+                                    <p class="card-text">Arduino - Junior robototexnika kursi mentori. Robototexnik.</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fas fa-robot"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p>
+                                        <img class=" img-fluid" src="/static/images/users/05.jpg" alt="card image">
+                                    </p>
+                                    <h4 class="card-title">Abdurahmon Rashidov</h4>
+                                    <p class="card-text">Fullstack  web dasturlash kursi mentori. Python web-developer.</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fab fa-python"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/03.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Sardorbek Yigitaliev</h4>
+                                    <p class="card-text">Bolalar uchun dasturlash kursi mentori. Robototexnik.</p>
+                                    <a href="#" class="display-4 text-dark">
+                                        <i class="fas fa-robot"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/07.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Ilhomjon Inomov</h4>
+                                    <p class="card-text">Marketolog - Ijtimoiy tarmoqlar yurutuvchisi (SMM)</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/08.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Xushnudbek Niyazov</h4>
+                                    <p class="card-text">Grafik dizayn kursi mentori. Grafik va Veb dizayner</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fas fa-bezier-curve"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/06.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Abduaziz G'ulomov</h4>
+                                    <p class="card-text">Video montaj kursi mentori. Motion dizayner</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fas fa-film"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/09.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Ibrohim Rashidov</h4>
+                                    <p class="card-text">Python kursi mentori.Backend-developer.</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fab fa-python"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 slide-content">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/static/images/users/02.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Ro'ziboy Sattimjonov</h4>
+                                    <p class="card-text">Sotuv bo'limi boshlig'i. Kompyuteri Injeneri.</p>
+                                     <a href="#" class="display-4 text-dark">
+                                        <i class="fas fa-users"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+
+        </div>
+    </div>
+</section>
+
+</div>
+</div>
+
+        </div>
+    </section>
+
+<section class="section" id="blog">
+    <div class="container">
+          <div class="title-box text-center">
+                <h3 class="title-heading mb-3">So'nggi maqolalar</h3>
+            </div>
+            <br>
+        <div class="row ">
+        {% for post in posts|slice:'3' %}
+        {% autoescape off %}
+            
+        
+            <div class="col-md-4">
+                <div class="post">
+                    <div class="post-img">
+                        <img src="{{post.image.url}}" alt="">
+                    </div>
+                    <div class="post-title mt-2">
+                        <a href="{{post.get_absolute_url}}" style="color:#263238;"><h4>{{post.title}}</h4></a>
+                        
+                    </div>
+                    <div class="post-body">
+                        <p>{{post.body|truncatewords:'15'}}</p>
+                  <div class="read-btn mt-2">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="#">{{post.author}}</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="{{post.get_absolute_url}}" class="btn btn-outline btn-lg"
+                            style="background: #FFC033;">Batafsil</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            {% endautoescape %}
+        {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<section class="section bg-light" id="contact">
+    <div class="container">
+                <div class="row align-items-center mt-0 pt-2">
+                <div class="col-lg-5 ">
+
+                    <div class="">
+                        <h3 class="title-heading">Savolingiz qoldimi?</h3>
+                        <p class="text-muted mt-2">O’zingizni qiziqtirgan savolga javob topa olmadingizmi? Bizga murojaat qiling va biz sizni qiziqtirgan istalgan savolga javob beramiz!</p>
+
+                        <div >
+                            <img class="questions" src="/static/images/main-content/quest.png">
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="custom-form">
+                        <form method="post" action="{% url 'main:home' %}" name="myForm">
+                            <p id="error-msg"></p>
+                            <div id="simple-msg"></div>
+                            <div class="row">
+                                <div class="mt-2">
+                                    {{contact_form|crispy}}
+                                    {% csrf_token %}
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg-10 text-right">
+                                    <input type="submit" id="submit" name="send" class="submitBnt btn " style="background: #FFC033;"
+                                        value="Yuborish">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+    
+
+
+
+    <!-- END CONTACT -->
+<div class="modal fade" style="width:90%; height:auto; margin-bottom:20px;" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">Kursga yozilish formasi</h5>
+        <button type="button" onclick="ShowRegbtn()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa fa-times"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+            <form action="{% url 'main:form_reg' %}" method="POST">
+                {{form|crispy}}
+                {% csrf_token %}
+                <br>
+                <input type="submit" class="btn btn-md" style="background: #FFC033;" value="Yozilish">
+            </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+    #slide{
+        width: 2000px;
+        display: flex;
+    }
+    #slide .slide-content{
+        flex: 1;
+        width: 400px;
+    }
+</style>
+   {% endblock %}

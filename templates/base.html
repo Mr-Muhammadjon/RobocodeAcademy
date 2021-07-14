@@ -1,0 +1,264 @@
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="utf-8" />
+      <title>Robocode IT Academy</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Robocode IT Academy Andijan - Andijondagi Robototexnika va Dasturlash , Grafik dizayn, Video montaj bo'yicha o'quv kurslari" />
+      <meta name="keywords" content="Robocode, Andijan, Robototexnika, dasturlash, andijon, lego, Arduino, Python, Javascript, Vue.js, Django, PostgreSQL, HTML, CSS, bootstrap, Andijon, Vodiy, IT sohasi, dasturlash kurslari" />
+      <meta content="Abdurakhmon Rashidov" name="author" />
+      <!-- favicon -->
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S0G7KGTVNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S0G7KGTVNT');
+</script>
+      <link rel="shortcut icon" href="/static/images/favicon.svg" />
+      <!-- css -->
+      <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+      <!-- icon -->
+      <link href="/static/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+      <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+      <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+      <link href="/static/css/team.css" rel="stylesheet" type="text/css" />
+         <script src="/static/js/core.js"></script>
+
+  </head>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+};
+
+</script>
+
+  <body>
+    <main>
+      <!-- STRAT NAVBAR -->
+      <div id="navbar">
+          <nav class="navbar navbar-expand-lg navbar-white fixed-top navbar-custom sticky sticky-dark" id="main-menu">
+              <div class="container">
+                  <!-- LOGO -->
+                  <a class="navbar-brand logo text-uppercase" href="#">
+                      <img src="/static/images/logo-top.png" alt="" height="50" />
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="mdi mdi-menu"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                      <ul class="navbar-nav navbar-center mx-auto" id="navbar-navlist">
+                          <li class="nav-item">
+                              <a data-scroll href="{% url 'main:home' %}" class="nav-link">Bosh sahifa</a>
+                          </li>
+                          <li class="nav-item">
+                              <a data-scroll href="#services" class="nav-link">Kurslar</a>
+                          </li>
+                          <li class="nav-item">
+                              <a data-scroll href="#team" class="nav-link">Biz haqimizda</a>
+                          </li>
+                          <li class="nav-item">
+                              <a data-scroll href="#blog" class="nav-link">Blog</a>
+                          </li>
+                    
+                          <li class="nav-item">
+                              <a data-scroll href="#contact" class="nav-link">Aloqa</a>
+                          </li>
+
+                      </ul>
+                      <div class="nav-button">
+                          <ul class="list-inline nav-social d-none d-lg-inline-block  mb-0">
+                              <li class="list-inline-item ps-1"><a href="https://fb.com/robocode.andijan"><i class="mdi mdi-facebook"></i></a></li>
+                              <li class="list-inline-item ps-1"><a href="https://t.me/robocode_andijan"><i class="mdi mdi-telegram"></i></a></li>
+
+                              <li class="list-inline-item ps-1"><a href="https://www.youtube.com/channel/UCACX1wBauOL7JTPoGZoWS4w"><i class="mdi mdi-youtube"></i></a></li>
+
+                               <li class="list-inline-item ps-1"><a href="https://instagram.com/robocode.uz"><i class="mdi mdi-instagram"></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+      </div>
+      <!-- END NAVBAR -->
+
+    <div class="register hideReg" id="myID" >
+      <a href="#" data-toggle="modal" data-target="#exampleModal3" onclick="HideRegbtn()" class="reg" >
+        <img src="/static/images/reg2.svg" width="80" alt="Kursga yozilish" title="Kursga yozilish">       
+      </a>
+    </div>
+
+<script>
+
+function HideRegbtn(){
+  document.querySelector('.register').style = 'display:none; transition:all 0.5s;'
+};
+function ShowRegbtn(){
+  document.querySelector('.register').style = 'display:block; transition:all 0.5s;'
+};
+  myID = document.getElementById("myID");
+
+var myScrollFunc = function () {
+    var y = window.scrollY;
+    if (y >= 800) {
+        myID.className = "register showReg";
+    } else {
+        myID.className = "register hideReg";
+    }
+};
+
+window.addEventListener("scroll", myScrollFunc);
+</script>
+      {% block content %}
+      {% endblock%}
+
+       <!-- START FOOTER -->
+      <section class="bg-footer" style="background: #333333; color: white; padding-left: 20px;padding-right: 20px;" >
+
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-3">
+                      <div class="mt-2">
+                          <img src="/static/images/main-content/log.svg" alt="" height="54">
+                          <p class=" mt-3 pt-1">
+                              RoboCode IT Academy o'quv markazi
+  sizga eng zamonaviy o'quv tizimlarini taklif etadi. <br> Ijtimoiy tarmoqlarimiz:
+                          </p>
+                          <div class="footer-social mt-4">
+                              <ul class="list-inline mb-0">
+                                  <li class="list-inline-item">
+                                      <a href="https://fb.com/robocode.andijan" class="text-reset"><i class="mdi mdi-facebook"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                      <a href="https://t.me/robocode_andijan" class="text-reset"><i class="mdi mdi-telegram"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                      <a href="https://www.youtube.com/channel/UCACX1wBauOL7JTPoGZoWS4w" class="text-reset"><i class="mdi mdi-youtube"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                      <a href="https://instagram.com/robocode.uz" class="text-reset"><i class="mdi mdi-instagram"></i></a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-8 offset-lg-1">
+                      <div class="row">
+
+                          <div class="col-lg-4">
+                              <div class="mt-2 ps-0 ps-lg-1">
+                                  <h5 class="f-18">Ma'lumot</h5>
+                                  <ul class="list-unstyled footer-link mt-3">
+                                      <li class="mt-3">
+                                          <i class="fa fa-map-marker-alt"></i> 
+                                          <span class="p-1">Andijon vil. Andijon sh.
+                                      Buyuk Turon 21, Avtovokzal ortida.</span>
+                                      </li>
+                                      <li class="mt-3">
+                                          <i class="fa fa-phone"></i>
+                                          <span class="p-1">
+                                              +998 99 899 90 05
+                                          </span>
+                                      </li>
+                                      <li class="mt-3">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="p-1">
+                                             robocode.andijan@mail.ru
+                                          </span>
+                                      </li>
+                                      
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-lg-3">
+                              <div class="mt-2">
+                                  <h5 class="f-18">Kurslar</h5>
+                                  <ul class="list-unstyled footer-link mt-3">
+                                    {% for c in courses %}
+                                      <li><a href="{{c.get_absolute_url}}">{{c.title}}</a></li>
+                                    {% endfor %}
+                                                                           
+                                  </ul>
+                              </div>
+                          </div>
+
+                          <div class="col-lg-4">
+                              <div class="mt-2 ps-0 ps-lg-1">
+                                  <h5 class="f-18">So'ngi maqolalar</h5>
+                                  <ul class="list-unstyled footer-link mt-3">
+                                    {% for fp in footer_post %}                                
+                                      <li><a href="{{fp.get_absolute_url}}">{{fp.title}}</a></li>
+                                    {% endfor %}
+                                     
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row mt-3">
+                  <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                      <div class="client-images mt-1">
+                          <img src="/static/images/clients/1.png" alt="logo-img" class="mx-auto img-fluid d-block">
+                      </div>
+                  </div>
+                  <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                      <div class="client-images mt-1">
+                          <img src="/static/images/clients/6.png" alt="logo-img" class="mx-auto img-fluid d-block">
+                      </div>
+                  </div>
+                  <div class="col-6 col-sm-6 col-md-3 col-lg-3 ">
+                      <div class="client-images mt-1">
+                          <img src="/static/images/clients/3.png" alt="logo-img" class="mx-auto img-fluid d-block">
+                      </div>
+                  </div>
+                  <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                      <div class="client-images mt-1">
+                          <img src="/static/images/clients/4.png" alt="logo-img" class="mx-auto img-fluid d-block">
+                      </div>
+                  </div>
+              </div>
+
+              <hr class="mt-5">
+              <div class="row mt-4">
+                  <div class="col-lg-12">
+                      <p class="text-center text-muted mb-0">
+                          {% now "Y" %} © Robocode IT Academy
+                      </p>
+
+                  </div>
+
+              </div>
+
+          </div>
+      </section>
+      <!-- END FOOTER -->
+  <!-- modal -->
+<!-- Modal -->
+
+    <!-- Central Modal Form-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    
+      <script src="/static/js/smooth-scroll.polyfills.min.js"></script>
+      <script src="/static/js/gumshoe.polyfills.min.js"></script>
+      <!-- unicons icon -->
+      <script src="/static/js/unicons.js"></script>
+      <!-- Contact Form  -->
+      <script src="/static/js/app.js"></script>
+   
+      <script src="/static/js/bootstrap.bundle.min.js"></script>
+    </main>
+  </body>
+
+  </html>

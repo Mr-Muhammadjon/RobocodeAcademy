@@ -1,0 +1,79 @@
+{% extends 'base_post.html' %}
+{% load static %}
+{% block content %}
+   {% autoescape  off%} 
+
+    <!-- END NAVBAR -->
+<style>
+  iframe{
+    width: 90%;
+    height: 350px;
+    max-height: 500px;
+    margin: auto;
+  }
+</style>
+<section class="container">
+
+    <section class="pt-5 pb-5">
+    <div class="container">
+
+          <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="mb-3">
+                {% if post.youtube_link %}
+                  <iframe  src="https://www.youtube.com/embed/{{post.youtube_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% endif %}
+              </div>
+              <a href="#" class="mt-4 h2 text-dark">
+                  {{post.title}}
+              </a>
+          <p class="mt-4">{{post.body}}
+
+
+          </p>
+        
+    <div class="row">
+        <div class="col-sm-6">
+               <div class="d-flex text-small">
+                    <a href="#">{{post.author}}</a>
+                    <span class="text-muted ml-1"> |</span>
+                  </div>
+        </div>
+        <div class="col-sm-6">
+                    <div class="d-flex text-small">
+                    <a href="#">{{post.published }}</a>
+                    <span class="text-muted ml-1">|</span>
+                  </div>
+        </div>
+    </div>
+             
+            
+
+            </div>
+            <div class="col-lg-4 ">
+              <ul class="list-unstyled">
+                {% for mp in more %}                    
+                
+                <li class="row mb-4">
+                <a href="#" class="col-3">
+                  <img src="{{mp.image.url}}" alt="Image" class="rounded img-fluid">
+                </a>
+                <div class="col-9">
+                  <a href="{{mp.get_absolute_url}}">
+                    <h6 class="mb-3 h5 text-dark">{{mp.title}}</h6>
+                  </a>
+                  <div class="d-flex text-small">
+                    <a href="#">{{mp.author}}</a>
+                    <span class="text-muted ml-1">{{mp.published}}</span>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+</section>
+{% endautoescape %}
+{% endblock %}
